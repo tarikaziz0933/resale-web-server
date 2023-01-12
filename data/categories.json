@@ -1,0 +1,59 @@
+[
+    {
+        "index": "1",
+        "category_name": "Cardio Exercise",
+        "img": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "categoryList": [
+            "Treadmills",
+            "Recline Bikes",
+            "Cross Trainers"
+        ]
+    },
+    {
+        "index": "2",
+        "category_name": "Chest and Arms",
+        "img": "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "categoryList": [
+            "Bench Machine",
+            "Chest Press"
+        ]
+    },
+    {
+        "index": "3",
+        "category_name": "Free Weights",
+        "img": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "categoryList": [
+            "Dumbbells",
+            "Fixed Barbells",
+            "Plate Weights"
+        ]
+    },
+    {
+        "index": "4",
+        "category_name": "Leg Exercise",
+        "img": "https://images.unsplash.com/photo-1549476464-37392f717541?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
+        "categoryList": [
+            "Leg Curl",
+            "Calf Press"
+        ]
+    },
+    {
+        "index": "5",
+        "category_name": "Shoulder Training",
+        "img": "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+        "categoryList": [
+            "Overhead Press",
+            "Kettlebells"
+        ]
+    },
+    {
+        "index": "6",
+        "category_name": "Back Training",
+        "img": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+        "categoryList": [
+            "Assisted Pull-Up",
+            "Low Seated Row",
+            "T-Bar Row"
+        ]
+    }
+]
