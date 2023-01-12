@@ -1,29 +1,17 @@
-const express = require("express");
+const express = require('express');
+const cors = require('cors');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+require('dotenv').config();
 const app = express();
-const cors = require("cors");
-const {
-    MongoClient,
-    ServerApiVersion,
-    ObjectId,
-    ObjectID,
-} = require("mongodb");
 const port = process.env.PORT || 5000;
-
-require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
 
-const categories = require("./data/categories.json");
-const products = require("./data/products.json");
-const { json } = require("express");
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ct9it9z.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverApi: ServerApiVersion.v1,
-});
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.fos1t9l.mongodb.net/?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 async function run() {
     try {
@@ -68,21 +56,9 @@ async function run() {
             res.send(result);
         });
 
-        app.get("/statusdUser", async (req, res) => {
-            const status = req.query.status;
-            const query = { status: status };
 
-            const result = await userCollection.find(query).toArray();
-            console.log(result);
-            res.send(result);
-        });
 
-        app.get("/myProducts", async (req, res) => {
-            const email = req.query.email;
-            const query = { email: email };
-            const products = await productCollection.find(query).toArray();
-            res.send(products);
-        });
+
 
         app.put("/myProducts/:id", async (req, res) => {
             const id = req.params.id;
@@ -121,12 +97,7 @@ async function run() {
             res.send(orders);
         });
 
-        app.get("/wishList", async (req, res) => {
-            const email = req.query.email;
-            const query = { buyer_email: email };
-            const wishList = await wishlistCollection.find(query).toArray();
-            res.send(wishList);
-        });
+
 
         app.get("/buyers/myBuyer", async (req, res) => {
             const email = req.query.email;
@@ -168,11 +139,7 @@ async function run() {
             }
         });
 
-        app.post("/product", async (req, res) => {
-            const product = req.body;
-            const result = await productCollection.insertOne(product);
-            res.send(result);
-        });
+
 
         app.post("/users", async (req, res) => {
             const user = req.body;
@@ -185,35 +152,9 @@ async function run() {
             res.send(result);
         });
 
-        app.post("/order", async (req, res) => {
-            const order = req.body;
-            const query = {
-                image_url: order.image_url,
-                email: order.email,
-            };
-            const isFound = await orderCollection.findOne(query);
-            if (isFound) {
-                res.send({ message: "alreadyAdded" });
-            } else {
-                const result = await orderCollection.insertOne(order);
-                res.send(result);
-            }
-        });
 
-        app.post("/wishList", async (req, res) => {
-            const wishItem = req.body;
-            const query = {
-                image_url: wishItem.image_url,
-                buyer_email: wishItem.buyer_email,
-            };
-            const isFound = await wishlistCollection.findOne(query);
-            if (isFound) {
-                res.send({ message: "alreadyAdded" });
-            } else {
-                const result = await wishlistCollection.insertOne(wishItem);
-                res.send(result);
-            }
-        });
+
+
 
         app.delete("/user/:id", async (req, res) => {
             const id = req.params;
@@ -236,11 +177,20 @@ async function run() {
             const result = await wishlistCollection.deleteOne(filter);
             res.send(result);
         });
-    } finally {
+    }
+    finally {
+
     }
 }
-run().catch((err) => console.log("Error: ", err));
+
+run();
+
+
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
 
 app.listen(port, () => {
-    console.log(`mongodb db server is running, ${port}`);
-});
+    console.log(`Example app listening on port ${port}`)
+})
